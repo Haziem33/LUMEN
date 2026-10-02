@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ c.en }}{% endblock %}
+{% block content %}
+<div class="wrap block">
+  <nav class="crumbs muted"><a href="{{ url_for('categories') }}">Categories</a> / {{ c[lang] }}</nav>
+  <header class="term-head">
+    <div class="ar big">{{ c.ar }}</div>
+    <h1>{{ c.en }} <em>{{ c.es }}</em></h1>
+    <p class="muted">{{ c.reading }}{{ ' · ' if c.reading }}{{ terms|length }} terms</p>
+  </header>
+  <div class="list">{% for t in terms %}{% include "_card.html" %}{% else %}<div class="empty"><p class="muted">No confirmed terms in this category yet.</p></div>{% endfor %}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ t.en }}{% endblock %}
+{% block content %}
+<div class="wrap block">
+  <nav class="crumbs muted"><a href="{{ url_for('categories') }}">Categories</a> / <a href="{{ url_for('category', code=t.cat.code) }}">{{ t.cat[lang] }}</a> / {{ t.en }}</nav>
+  <header class="term-head">
+    <div class="ar big">{{ t.ar }}</div>
+    <h1>{{ t.en }} <em>{{ t.es }}</em></h1>
+    <p class="muted">{{ t.cat[lang] }}</p>
+  </header>
+  <div class="split wide">
+    <div class="defs">
+      <section class="def"><h4>العربية</h4><p class="ar def-ar" dir="rtl">{{ t.def_ar }}</p></section>
+      <section class="def"><h4>Español</h4><p>{{ t.def_es }}</p></section>
+      <section class="def"><h4>English</h4><p>{{ t.def_en }}</p></section>
+    </div>
+    <aside class="side">
+      <div class="panel dark"><h4>Sources</h4>
+        {% for r in t.refs %}<p>{{ r.full or r.short }}</p>{% else %}<p>No sources added yet.</p>{% endfor %}
+      </div>
+    </aside>
+  </div>
+</div>
+{% endblock %}

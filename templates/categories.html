@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Categories{% endblock %}
+{% block content %}
+<div class="wrap block">
+  <h1 class="h1s">Categories</h1>
+  <div class="grid2" style="margin-top:24px">{% for c in categories %}{% include "_cat_card.html" %}{% else %}<p class="muted">No categories yet.</p>{% endfor %}</div>
+</div>
+{% endblock %}

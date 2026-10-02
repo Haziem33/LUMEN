@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{{ dir }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}LUMIN{% endblock %} · LUMIN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="{{ url_for('home') }}">LUMIN<span>Trilingual Lexicon</span></a>
+    <nav class="links">
+      <a href="#">Categories</a><a href="#">Methodology &amp; Sources</a><a href="#">About LUMIN</a>
+    </nav>
+    <div class="tools">
+      <div class="langs">
+        {% for code, label in [('ar','العربية'),('en','EN'),('es','ES')] %}
+        <a href="?lang={{ code }}" class="{{ 'on' if lang == code }}">{{ label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="foot"><div class="wrap">LUMIN · Islamic Knowledge, Across Languages.</div></footer>
+</body>
+</html>

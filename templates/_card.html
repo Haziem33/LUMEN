@@ -1,0 +1,13 @@
+<article class="card">
+  <div class="card-root">{{ t.cat[lang] }}</div>
+  <div class="card-head">
+    <div><h3>{{ t.en }}</h3><p class="es">{{ t.es }}</p></div>
+    <div class="ar term-ar">{{ t.ar }}</div>
+  </div>
+  <p {% if lang == 'ar' %}class="ar" dir="rtl"{% endif %}>{{ t['def_' ~ lang] }}</p>
+  {% if show_refs and t.refs %}<p class="refs">{% for r in t.refs %}{{ r.short or r.full }}{{ ' · ' if not loop.last }}{% endfor %}</p>{% endif %}
+  <div class="card-foot">
+    <span class="muted">{{ t.refs|length }} sources</span>
+    <a href="{{ url_for('term', code=t.code) }}">View full entry</a>
+  </div>
+</article>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Islamic Knowledge, Across Languages.</h1>
+    <p class="ar hero-ar">مُعْجَمُ الْمُصْطَلَحَاتِ الْإِسْلَامِيَّةِ الْمُقَارَن</p>
+    <form class="searchbox" action="{{ url_for('search') }}">
+      <input name="q" placeholder="Search in English, Arabic script or Spanish" aria-label="Search">
+      <button>Search</button>
+    </form>
+  </div>
+</section>
+<section class="wrap block">
+  <h2>Browse by category</h2>
+  <div class="grid2">{% for c in categories %}{% include "_cat_card.html" %}{% else %}<p class="muted">No categories yet.</p>{% endfor %}</div>
+</section>
+{% endblock %}

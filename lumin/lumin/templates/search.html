@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<div class="wrap block">
+  <form class="searchbox slim" action="{{ url_for('search') }}">
+    <input name="q" value="{{ q }}" aria-label="Search"><button>Search</button>
+  </form>
+  <h1 class="h1s">Search results{% if q %} for “{{ q }}”{% endif %}</h1>
+  <p class="muted">{{ results|length }} entries found</p>
+  <div class="split">
+    <form class="filters" method="get">
+      <input type="hidden" name="q" value="{{ q }}">
+      <h4>Category</h4>
+      {% for c in categories %}
+      <label><input type="checkbox" name="cat" value="{{ c }}" {{ 'checked' if c in cats }}> {{ c }}</label>
+      {% endfor %}
+      <button class="ghost">Apply filters</button>
+    </form>
+    <div class="list">
+      {% for t in results %}{% include "_card.html" %}
+      {% else %}
+      <div class="empty"><h3>No entries match “{{ q }}”</h3><p class="muted">Check the spelling or try the term in another language.</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

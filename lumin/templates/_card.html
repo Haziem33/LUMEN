@@ -1,0 +1,13 @@
+<article class="card">
+  <div class="card-root">{{ t.root_latin }} <span class="ar">{{ t.root }}</span> · {{ t.translit }}</div>
+  <div class="card-head">
+    <div><h3>{{ t.en }}</h3><p class="muted">{{ t.gloss_en }}</p></div>
+    <div class="ar term-ar">{{ t.ar }}</div>
+  </div>
+  <p class="muted es">{{ t.es }} · {{ t.gloss_es }}</p>
+  <p>{{ t.def_en }}</p>
+  <div class="card-foot">
+    <span class="muted">{{ t.sources }} sources · {{ t.related_count }} related</span>
+    <a href="{{ url_for('term', term_id=t.id) }}">View full entry</a>
+  </div>
+</article>

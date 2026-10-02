@@ -1,0 +1,7 @@
+<a class="card" href="{{ url_for('category', code=c.code) }}">
+  <div class="card-head">
+    <div><h3>{{ c.en }}</h3><p class="es">{{ c.es }}</p></div>
+    <div class="ar term-ar">{{ c.ar }}</div>
+  </div>
+  <p class="muted">{{ c.reading }}{{ ' · ' if c.reading }}{{ c.count }} terms</p>
+</a>
